@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+$scripName = array_shift($argv);
+
+//check if there're no parameters, show help and exit
+if ($argc == 1 || ($argc > 1 && ($argv[0] == 'help')) ) {
+    echo "Usage: php $scripName [command]
+    Available commands:
+      help ( h )      this help
+      init               initializes the application
+      make:[option]               makes somthing
+        options:
+            something             return the option (somthing)
+";
+      exit(0);
+}
+
+$command = array_shift($argv);
+
+if (strpos($command, 'make') === 0) {
+    $option = substr($command, 5);
+    if (!$option) {
+        echo "option required
+        Usage: php <?$scripName?> make:[option]
+        Available options:
+            something             return the option (somthing)";
+        exit(1);
+    }
+    echo $option;
+    exit(0);
+}else{
+    switch ($command) {
+        case 'init':
+            init();
+            break;
+        default:
+            echo "Unknown command: $command\n";
+            break;
+    }
+}
+
+function init() {
+    echo "Initialized";
+}
+?>
