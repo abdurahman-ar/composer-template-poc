@@ -1,0 +1,9 @@
+{
+    "name": "abdurahman-ar/composer-template-poc",
+    "description": "A proof of concept for Composer template repositories",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.0"
+    }
+}
